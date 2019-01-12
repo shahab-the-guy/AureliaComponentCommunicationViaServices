@@ -1,0 +1,25 @@
+<template>
+  <abt-navbar expand-size="lg" navbar-color-type="dark" background-color-type="dark">
+    <abt-navbar-toggler></abt-navbar-toggler>
+    <abt-navbar-collapser>
+      <abt-navbar-nav class="mr-auto">
+        <abt-navbar-link repeat.for="route of router.navigation"
+        href.bind="route.href" class="${route.isActive ? 'active' : ''}"
+        >
+          ${route.title}
+        </abt-navbar-link>
+      </abt-navbar-nav>
+      <form class="form-inline my-2 my-lg-0">
+        <abt-navbar-nav class="mr-auto">
+          <abt-navbar-link href="#/login">Login</abt-navbar-link>
+        </abt-navbar-nav>
+      </form>
+    </abt-navbar-collapser>
+  </abt-navbar>
+
+  <div class="container mt-5">
+
+    <router-view></router-view>
+    
+  </div>
+</template>
