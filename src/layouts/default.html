@@ -3,9 +3,7 @@
     <abt-navbar-toggler></abt-navbar-toggler>
     <abt-navbar-collapser>
       <abt-navbar-nav class="mr-auto">
-        <abt-navbar-link repeat.for="route of router.navigation"
-        href.bind="route.href" class="${route.isActive ? 'active' : ''}"
-        >
+        <abt-navbar-link repeat.for="route of router.navigation" href.bind="route.href" class="${route.isActive ? 'active' : ''}">
           ${route.title}
         </abt-navbar-link>
       </abt-navbar-nav>
@@ -19,7 +17,7 @@
 
   <div class="container mt-5">
 
-    <router-view></router-view>
-    
+    <slot></slot>
+
   </div>
 </template>
