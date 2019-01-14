@@ -3,8 +3,11 @@
     <abt-navbar-toggler></abt-navbar-toggler>
     <abt-navbar-collapser>
       <abt-navbar-nav class="mr-auto">
-        <abt-navbar-link repeat.for="route of router.navigation" href.bind="route.href" class="${route.isActive ? 'active' : ''}">
-          ${route.title}
+        <abt-navbar-link route-href="route: contacts">
+          Contacts
+        </abt-navbar-link>
+        <abt-navbar-link route-href="route: new_contact">
+          Add New Contacts
         </abt-navbar-link>
       </abt-navbar-nav>
       <form class="form-inline my-2 my-lg-0">

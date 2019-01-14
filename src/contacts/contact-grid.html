@@ -1,0 +1,26 @@
+<template>
+
+  <table class="table table-hover table-condensed table-borderless table-sm">
+    <thead>
+      <tr class="table-info">
+        <td>#</td>
+        <td>Name</td>
+        <td>Family</td>
+        <td>Phone</td>
+        <td>e-mail</td>
+        <td>Web site</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="contact of contacts">
+        <td>${contact.id}</td>
+        <td>${contact.name}</td>
+        <td>${contact.family}</td>
+        <td>${contact.phone}</td>
+        <td>${contact.email}</td>
+        <td>${contact.website}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</template>
