@@ -1,5 +1,33 @@
 <template>
-  <abt-alert type="secondary">
-    Login Component
-  </abt-alert>
+
+  <div class="container mt-5">
+    <abt-card>
+      <abt-card-header class="bg-info text-light">
+        <h5>Login</h5>
+      </abt-card-header>
+      <abt-card-body>
+
+        <form>
+          <div class="row">
+            <div class="col-6">
+              <abt-float-input type='text' placeholder="Username" id="username">
+                Username
+              </abt-float-input>
+              <abt-float-input type='password' placeholder="Password" class="mt-3" id="password">
+                Password
+              </abt-float-input>
+              <abt-button bs-type="primary" class="pull-right mt-3" click.call="onLogin()">
+                Login
+              </abt-button>
+            </div>
+            <div class="col-6">
+
+            </div>
+          </div>
+        </form>
+
+      </abt-card-body>
+    </abt-card>
+  </div>
+
 </template>

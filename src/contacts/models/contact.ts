@@ -7,5 +7,5 @@ export interface IContact {
 
   phone: string;
   email: string;
-  website: string;
+  website?: string;
 }

@@ -1,7 +1,10 @@
 <template>
-    <form>
-        <abt-float-input type='search' placeholder="Search to filter contacts">
-            Search
-        </abt-float-input>
-    </form>
+  <form>
+    <abt-inputgroup size="sm" class="mb-3">
+      <abt-inputgroup-prepend>
+        <abt-inputgroup-text>Search</abt-inputgroup-text>
+      </abt-inputgroup-prepend>
+      <input type="search" value.bind="filter" class="form-control">
+    </abt-inputgroup>
+  </form>
 </template>

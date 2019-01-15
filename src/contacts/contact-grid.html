@@ -9,6 +9,7 @@
         <td>Phone</td>
         <td>e-mail</td>
         <td>Web site</td>
+        <td></td>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +19,15 @@
         <td>${contact.family}</td>
         <td>${contact.phone}</td>
         <td>${contact.email}</td>
-        <td>${contact.website}</td>
+        <td>
+          <a href="${contact.website}">
+
+            ${contact.website}
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-info" route-href="route: contactDetails; params.bind : { id: contact.id }">Details</a>
+        </td>
       </tr>
     </tbody>
   </table>
