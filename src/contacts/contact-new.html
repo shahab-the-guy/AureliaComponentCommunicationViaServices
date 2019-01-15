@@ -1,7 +1,45 @@
 <template>
 
-  <abt-alert type="success">
-    New Contacts will be created here!
-  </abt-alert>
+  <abt-card>
+    <abt-card-header class="${isNew ? 'bg-success' : 'bg-info'} text-white">
+      <span>
+        ${isNew ? 'New': 'Edit'}
+      </span>
+    </abt-card-header>
+
+    <abt-card-body>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Name</label>
+            <input type="text" class="form-control" placeholder="Name" value.bind="contact.name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Family</label>
+            <input type="text" class="form-control" placeholder="Family" value.bind="contact.family">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Website</label>
+          <input type="url" class="form-control" placeholder="http://" value.bind="contact.website">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Phone</label>
+            <input type="phone" class="form-control" placeholder="+98" value.bind="contact.phone">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputZip">Email</label>
+            <input type="email" class="form-control" placeholder="some@email.com" value.bind="contact.email">
+          </div>
+        </div>
+        <abt-button bs-type="${isNew ? 'success' : 'info' }">Save</abt-button>
+        <a route-href="route: contacts" class="btn btn-link">Back</a>
+      </form>
+
+    </abt-card-body>
+
+  </abt-card>
 
 </template>
