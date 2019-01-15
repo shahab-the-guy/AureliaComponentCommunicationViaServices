@@ -1,7 +1,7 @@
 import { IContact } from "contacts/models/contact";
 import { singleton } from "aurelia-framework";
 
-let id = 4;
+let id_counter = 4;
 const contacts: IContact[] = [
   {
     id: 1,
@@ -40,6 +40,7 @@ export class ContactsInMemoryService {
   }
 
   getContact(id: number): Promise<IContact> {
+    id = Number(id);
     return new Promise(resolve => {
       setTimeout(() => {
         const found = contacts.find(c => c.id === id);
@@ -54,7 +55,7 @@ export class ContactsInMemoryService {
 
         const contactToAdd = Object.assign({}, contact);
 
-        contactToAdd.id = id++;
+        contactToAdd.id = id_counter++;
         contacts.push(contactToAdd);
 
         resolve(contactToAdd)
@@ -64,6 +65,7 @@ export class ContactsInMemoryService {
   }
 
   deleteContact(id: number): Promise<IContact> {
+    id = Number(id);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const foundIndex = contacts.findIndex(c => c.id === id);
@@ -79,7 +81,8 @@ export class ContactsInMemoryService {
     });
   }
 
-  updateContact(id: number , contact: IContact): Promise<IContact> {
+  updateContact(id: number, contact: IContact): Promise<IContact> {
+    id = Number(id);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const foundIndex = contacts.findIndex(c => c.id === id);
@@ -89,7 +92,7 @@ export class ContactsInMemoryService {
         }
 
         contact.id = contacts[foundIndex].id;
-        contacts.splice(foundIndex, 1,contact);
+        contacts.splice(foundIndex, 1, contact);
 
         resolve(Object.assign({}, contact));
 
