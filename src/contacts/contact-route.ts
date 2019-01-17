@@ -1,4 +1,4 @@
-import { RouterConfiguration, Router } from "aurelia-router";
+import { RouterConfiguration, Router, RouteConfig, activationStrategy } from "aurelia-router";
 
 export class ContactRoute {
 
@@ -13,7 +13,10 @@ export class ContactRoute {
 
     config.map([
       { route: '', name: 'contacts', moduleId: 'contacts/contact-main', nav: false, title: '' },
-      { route: 'new', name: 'new_contact', moduleId: 'contacts/contact-new', nav: false, title: '' },
+      {
+        route: 'new', name: 'new_contact', moduleId: 'contacts/contact-new', nav: false, title: '',
+        activationStrategy: activationStrategy.invokeLifecycle
+      },
       { route: ':id', name: 'contactDetails', moduleId: 'contacts/contact-details', nav: false, title: '' },
       { route: ':id/edit', name: 'contactEdit', moduleId: 'contacts/contact-new', nav: false, title: '' }
     ]);

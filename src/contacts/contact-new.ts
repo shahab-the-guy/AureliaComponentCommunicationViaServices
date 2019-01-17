@@ -1,6 +1,7 @@
 import { autoinject } from "aurelia-framework";
 import { ContactsInMemoryService } from "./services/contacts-service";
 import { IContact } from "./models/contact";
+import { activationStrategy } from "aurelia-router";
 
 @autoinject()
 export class ContactNew {
@@ -33,6 +34,11 @@ export class ContactNew {
       family: '',
       email: '', website: '', phone: ''
     };
+  }
+
+  determineActivationStrategy(): string {
+    // applies to all routes using this component
+    return activationStrategy.invokeLifecycle;
   }
 
 
