@@ -11,10 +11,12 @@ export class ContactRoute {
 
     config.title = 'Contact Manager';
 
+    // because these routes are loaded into the slot of layout
+    // we should address them from as relative path from the src folder
     config.map([
-      { route: '', name: 'contacts', moduleId: 'contacts/contact-main', nav: false, title: '' },
+      { route: '', name: 'contacts', moduleId: 'contacts/contact-main', nav: true, title: 'Contacts' },
       {
-        route: 'new', name: 'new_contact', moduleId: 'contacts/contact-new', nav: false, title: '',
+        route: 'new', name: 'new_contact', moduleId: 'contacts/contact-new', nav: true, title: 'Add New Contact',
         activationStrategy: activationStrategy.invokeLifecycle
       },
       { route: ':id', name: 'contactDetails', moduleId: 'contacts/contact-details', nav: false, title: '' },

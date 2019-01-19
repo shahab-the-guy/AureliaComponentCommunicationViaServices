@@ -3,18 +3,10 @@
     <abt-navbar-toggler></abt-navbar-toggler>
     <abt-navbar-collapser>
       <abt-navbar-nav class="mr-auto">
-        <abt-navbar-link route-href="route: contacts">
-          Contacts
-        </abt-navbar-link>
-        <abt-navbar-link href="#/contacts/new">
-          Add New Contacts
+        <abt-navbar-link repeat.for="row of router.navigation" route-href="route.bind: row.config.name">
+          ${row.title}
         </abt-navbar-link>
       </abt-navbar-nav>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <abt-navbar-nav class="mr-auto">
-          <abt-navbar-link href="#/login">Login</abt-navbar-link>
-        </abt-navbar-nav>
-      </form> -->
     </abt-navbar-collapser>
   </abt-navbar>
 

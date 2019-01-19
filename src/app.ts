@@ -24,16 +24,16 @@ export class App {
         name: 'welcome',
         moduleId: './welcome/welcome',
         nav: 1, title: 'Home',
-        layoutView: './layouts/default.html',
-        // layoutViewModel: './layouts/default'
+        // layoutView: './layouts/default.html',
+        layoutViewModel: './layouts/default'
       },
       {
         route: 'contacts',
         name: 'contacts',
         moduleId: './contacts/contact-route',
-        nav: 2, title: 'Home',
-        layoutView: './layouts/default.html',
-        // layoutViewModel: './layouts/default'
+        nav: 2, title: 'Contacts',
+        // layoutView: './layouts/default.html',
+        layoutViewModel: './layouts/default'
       },
       {
         route: 'login',
