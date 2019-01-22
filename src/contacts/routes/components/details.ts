@@ -1,5 +1,5 @@
-import { IContact } from "./models/contact";
-import { ContactsInMemoryService } from "./services/contacts-service";
+import { IContact } from "../../models/contact";
+import { ContactsInMemoryService } from "../../services/contacts-service";
 import { autoinject } from "aurelia-framework";
 
 @autoinject()

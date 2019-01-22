@@ -1,6 +1,6 @@
 import { autoinject } from "aurelia-framework";
-import { ContactsInMemoryService } from "./services/contacts-service";
-import { IContact } from "./models/contact";
+import { ContactsInMemoryService } from "../../services/contacts-service";
+import { IContact } from "../../models/contact";
 import { activationStrategy } from "aurelia-router";
 
 @autoinject()

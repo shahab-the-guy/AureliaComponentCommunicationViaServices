@@ -1,5 +1,5 @@
 import { bindable } from "aurelia-framework";
-import { IContact } from "./models/contact";
+import { IContact } from "../models/contact";
 
 export class ContactGrid {
 

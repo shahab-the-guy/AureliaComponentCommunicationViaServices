@@ -15,14 +15,15 @@ export class App {
     config.options.pushState = false;
     config.options.root = '/';
 
-    config.mapUnknownRoutes('./welcome/not-found.html');
+    config.mapUnknownRoutes(
+      './shared/routes/not-found.html');
 
     config.map([
       { route: '', redirect: 'welcome' },
       {
         route: 'welcome',
         name: 'welcome',
-        moduleId: './welcome/welcome',
+        moduleId: './routes/welcome/welcome',
         nav: 1, title: 'Home',
         // layoutView: './layouts/default.html',
         layoutViewModel: './layouts/default'
@@ -30,7 +31,7 @@ export class App {
       {
         route: 'contacts',
         name: 'contacts',
-        moduleId: './contacts/contact-route',
+        moduleId: './contacts/routes/route-configuration',
         nav: 2, title: 'Contacts',
         // layoutView: './layouts/default.html',
         layoutViewModel: './layouts/default'
@@ -38,7 +39,7 @@ export class App {
       {
         route: 'login',
         name: 'login',
-        moduleId: './login/login-component',
+        moduleId: './routes/login/login-component',
         nav: 3, title: 'Login'
       }
     ]);
