@@ -64,7 +64,7 @@ export class ContactsInMemoryService {
 
         const contactToAdd = Object.assign({}, contact);
 
-        contactToAdd.id = id_counter++;
+        contactToAdd.id = ++id_counter;
         contacts.push(contactToAdd);
 
         resolve(contactToAdd)
