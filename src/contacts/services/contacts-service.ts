@@ -19,7 +19,7 @@ const contacts: IContact[] = [
     id: 3,
     name: 'Jane', family: 'Doe',
     phone: '+98 935 333 3333',
-    email: 'vegar@email.com'
+    email: 'jane@email.com'
   },
   {
     id: 4,
@@ -49,7 +49,16 @@ export class ContactsInMemoryService {
     });
   }
 
-  addContact(contact: IContact): Promise<IContact> {
+  saveContact(id: number | null, contact: IContact): Promise<IContact> {
+    if (id === null) {
+      return this.addContact(contact);
+    }
+
+    return this.updateContact(id, contact);
+
+  }
+
+  private addContact(contact: IContact): Promise<IContact> {
     return new Promise(resolve => {
       setTimeout(() => {
 
@@ -81,7 +90,7 @@ export class ContactsInMemoryService {
     });
   }
 
-  updateContact(id: number, contact: IContact): Promise<IContact> {
+  private updateContact(id: number, contact: IContact): Promise<IContact> {
     id = Number(id);
     return new Promise((resolve, reject) => {
       setTimeout(() => {

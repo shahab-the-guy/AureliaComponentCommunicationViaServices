@@ -1,7 +1,7 @@
 import { autoinject } from "aurelia-framework";
 import { ContactsInMemoryService } from "../../services/contacts-service";
 import { IContact } from "../../models/contact";
-import { activationStrategy } from "aurelia-router";
+import { activationStrategy, Router } from "aurelia-router";
 
 @autoinject()
 export class ContactNew {
@@ -9,11 +9,20 @@ export class ContactNew {
   private isNew: boolean = false;
   private contact: IContact = null;
 
-  constructor(private contactService: ContactsInMemoryService) { }
+  constructor(private contactService: ContactsInMemoryService, private router: Router) { }
 
-  activate(params) {
-    console.log(params);
+  private saveContact() {
+    this.contactService.saveContact(this.isNew ? null : this.contact.id, this.contact)
+      .then(c => {
+        this.router.navigateToRoute('contacts');
+      });
+  }
 
+  private back(){
+    this.router.navigateBack();
+  }
+
+  async activate(params: any) {
     if (params && params.id) {
       this.contactService.getContact(Number(params.id))
         .then(found => {

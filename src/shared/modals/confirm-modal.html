@@ -1,0 +1,28 @@
+<template>
+
+  <abt-modal centered="true"  with.bind="model">
+    <abt-modal-header>
+      <abt-modal-title>
+        ${title}
+      </abt-modal-title>
+    </abt-modal-header>
+
+    <abt-modal-body>
+      <p>
+        ${message}
+      </p>
+    </abt-modal-body>
+
+    <abt-modal-footer>
+      <abt-button bs-type="primary" click.call="dialogController.ok()">
+        Yes, sure
+      </abt-button>
+      &nbsp;
+      <abt-button bs-type="danger" click.call="dialogController.cancel()">
+        No, stop
+      </abt-button>
+    </abt-modal-footer>
+
+  </abt-modal>
+
+</template>

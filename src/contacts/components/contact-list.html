@@ -1,10 +1,16 @@
 <template>
-    <abt-listgroup>
-        <abt-listgroup-item>Cras justo odio</abt-listgroup-item>
-        <abt-listgroup-item>Dapibus ac facilisis in</abt-listgroup-item>
-        <abt-listgroup-item>Morbi leo risus</abt-listgroup-item>
-        <abt-listgroup-item>Porta ac consectetur ac</abt-listgroup-item>
-        <abt-listgroup-item>Vestibulum at eros</abt-listgroup-item>
+  <abt-card>
+
+    <abt-card-header class="bg-primary text-light">
+      Contact List
+    </abt-card-header>
+    <abt-card-body>
+
+      <abt-listgroup>
+        <abt-listgroup-item repeat.for="contact of contacts" click.call="selectContact(contact)">
+          ${contact.name} ${contact.family}
+        </abt-listgroup-item>
       </abt-listgroup>
-  </template>
-  
+    </abt-card-body>
+  </abt-card>
+</template>

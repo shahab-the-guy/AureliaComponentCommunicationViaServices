@@ -34,8 +34,8 @@
             <input type="email" class="form-control" placeholder="some@email.com" value.bind="contact.email">
           </div>
         </div>
-        <abt-button bs-type="${isNew ? 'success' : 'info' }">Save</abt-button>
-        <a route-href="route: contacts" class="btn btn-link">Back</a>
+        <abt-button click.call="saveContact()" bs-type="${isNew ? 'success' : 'info' }">Save</abt-button>
+        <a click.delegate="back()" class="btn btn-link">Back</a>
       </form>
 
     </abt-card-body>

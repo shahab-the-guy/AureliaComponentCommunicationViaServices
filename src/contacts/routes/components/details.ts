@@ -9,11 +9,11 @@ export class ContactDetails {
 
   constructor(private contactService: ContactsInMemoryService) { }
 
-  activate(params) {
-
-    return this.contactService.getContact(params.id).then(contact => {
-      this.contact = contact;
-    });
+  async activate(params: any) {
+    return this.contactService.getContact(params.id)
+      .then(contact => {
+        this.contact = contact;
+      });
 
   }
 

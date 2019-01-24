@@ -2,7 +2,6 @@ import { ContactsInMemoryService } from '../../services/contacts-service';
 import { autoinject, bindable } from 'aurelia-framework';
 import { IContact } from '../../models/contact';
 import { ContactGrid } from '../../components/contact-grid';
-import { settings } from 'cluster';
 
 
 @autoinject()
@@ -10,7 +9,16 @@ export class ContactMain {
 
   private contacts: IContact[];
   private filteredContacts: IContact[];
-  private criteria: string;
+
+  private _criteria: string;
+
+  get criteria() {
+    return this._criteria;
+  }
+  set criteria(value: string) {
+    this._criteria = value;
+    this.applyFilter(value);
+  }
 
   // refController;
   // refViewModel: ContactGrid;
@@ -40,9 +48,11 @@ export class ContactMain {
 
   }
 
-  private criteriaChanged(value: string) {
-    this.applyFilter(value);
-  }
+
+
+  // private criteriaChanged(value: string) {
+  //   this.applyFilter(value);
+  // }
 
   // bind() {
   //   console.log(this.refController);

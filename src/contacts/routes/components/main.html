@@ -1,21 +1,26 @@
 <template>
 
-  <!-- <require from="./contact-list"></require>
-  <require from="./contact-details"></require> -->
+
+  <!-- <require from="../../components/contact-list"></require>
+  <require from="./details"></require> -->
 
   <require from="../../components/contact-grid"></require>
 
-  <filter-component filter.bind="criteria" on-filter-changed.call="criteriaChanged(value)">
+  <filter-component filter.bind="criteria">
   </filter-component>
 
   <p>
     ${criteria}
   </p>
+
   <div class="row mt-3">
-    <!-- <contact-list class="col-sm-4"></contact-list>
-    <contact-details class="col-sm-8 mt-sm-2"></contact-details> -->
-    <!-- <contact-grid controller.ref="refController" view-model.ref="refViewModel"  class="col-sm-12" contacts.bind="contacts"></contact-grid> -->
+
+    <!-- <contact-list contacts.bind="contacts" class="col-sm-4"></contact-list>
+    <contact-details show.bind="currentContact" class="col-sm-8 mt-sm-2"></contact-details> -->
+
     <contact-grid class="col-sm-12" contacts.bind="filteredContacts"></contact-grid>
   </div>
 
 </template>
+
+<!-- <contact-grid controller.ref="refController" view-model.ref="refViewModel"  class="col-sm-12" contacts.bind="contacts"></contact-grid> -->

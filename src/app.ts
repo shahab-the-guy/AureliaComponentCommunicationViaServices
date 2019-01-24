@@ -31,7 +31,7 @@ export class App {
       {
         route: 'contacts',
         name: 'contacts',
-        moduleId: './contacts/routes/route-configuration',
+        moduleId: './contacts/routes/configuration',
         nav: 2, title: 'Contacts',
         // layoutView: './layouts/default.html',
         layoutViewModel: './layouts/default'

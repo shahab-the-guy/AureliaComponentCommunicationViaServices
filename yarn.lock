@@ -778,9 +778,28 @@ aurelia-dialog@^2.0.0-rc.3:
     aurelia-pal "^1.0.0"
     aurelia-templating "^1.8.2"
 
+aurelia-dialog@^2.0.0-rc.5:
+  version "2.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/aurelia-dialog/-/aurelia-dialog-2.0.0-rc.5.tgz#3a0dd7685d1e0ef0a2ae4771824678b46299d42b"
+  integrity sha512-HtmjMXY+7LU43RGImU72EADlJmC8Bg2j8gYmPBSXmL+rklU6QaTrcaez4tGPwZlJal5dEuFPdgJGNuXwop9Znw==
+  dependencies:
+    aurelia-binding "^2.1.4"
+    aurelia-dependency-injection "^1.0.0"
+    aurelia-framework "^1.0.0"
+    aurelia-metadata "^1.0.0"
+    aurelia-pal "^1.0.0"
+    aurelia-templating "^1.8.2"
+
 aurelia-event-aggregator@1.0.1, aurelia-event-aggregator@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/aurelia-event-aggregator/-/aurelia-event-aggregator-1.0.1.tgz#9d7c7c1e1efe1ef3a78785e76abe80601e2d34c8"
+  dependencies:
+    aurelia-logging "^1.0.0"
+
+aurelia-event-aggregator@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/aurelia-event-aggregator/-/aurelia-event-aggregator-1.0.2.tgz#39f4711bf5edc7ba84f8c2415f33000902768aae"
+  integrity sha512-x/M9G7RsLT7w6ZYIbEGkgYCo5TtE5m+K628Ab3vaiXJFIH8cGKBM0JiZU4N4C6R0ckBgGp2ssSCg8gp4SI9+vA==
   dependencies:
     aurelia-logging "^1.0.0"
 
