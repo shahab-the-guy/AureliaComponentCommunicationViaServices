@@ -1,31 +1,33 @@
 <template>
-  <abt-card>
-    <abt-card-header class="bg-info text-light">
-      ${contact.family}, ${contact.name}
-    </abt-card-header>
-    <abt-card-body>
-      <div class="row">
-        <div class="col-sm-6">
-          <label>Email:
-            <span>${contact.email}</span>
-          </label>
-          <br />
-          <label>Phone:
-            <span>${contact.phone}</span>
-          </label>
-          <br />
-          <label>Web site:
-            <span>${contact.website}</span>
-          </label>
+  <div show.bind="contact">
+    <abt-card>
+      <abt-card-header class="bg-info text-light">
+        ${contact.family}, ${contact.name}
+      </abt-card-header>
+      <abt-card-body>
+        <div class="row">
+          <div class="col-sm-6">
+            <label>Email:
+              <span>${contact.email}</span>
+            </label>
+            <br />
+            <label>Phone:
+              <span>${contact.phone}</span>
+            </label>
+            <br />
+            <label>Web site:
+              <span>${contact.website}</span>
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-sm-12">
-          <a class="btn btn-primary btn-block" route-href="route: contactEdit; params.bind:{ id: contact.id}">
-            Edit
-          </a>
+        <div class="row mt-4">
+          <div class="col-sm-12">
+            <a class="btn btn-primary btn-block" route-href="route: contactEdit; params.bind:{ id: contact.id}">
+              Edit
+            </a>
+          </div>
         </div>
-      </div>
-    </abt-card-body>
-  </abt-card>
+      </abt-card-body>
+    </abt-card>
+  </div>
 </template>
