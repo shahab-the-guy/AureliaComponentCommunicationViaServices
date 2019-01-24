@@ -2,6 +2,7 @@ import { ContactsInMemoryService } from '../../services/contacts-service';
 import { autoinject, bindable } from 'aurelia-framework';
 import { IContact } from '../../models/contact';
 import { ContactGrid } from '../../components/contact-grid';
+import { ContactFilterBag } from 'contacts/services/contact-filter-bag';
 
 
 @autoinject()
@@ -13,17 +14,17 @@ export class ContactMain {
   private _criteria: string;
 
   get criteria() {
-    return this._criteria;
+    return this.filterBag.filter;
   }
   set criteria(value: string) {
-    this._criteria = value;
+    this.filterBag.filter = value;
     this.applyFilter(value);
   }
 
   // refController;
   // refViewModel: ContactGrid;
 
-  constructor(private contactService: ContactsInMemoryService) { }
+  constructor(private contactService: ContactsInMemoryService, private filterBag: ContactFilterBag) { }
 
   async attached() {
     return this.contactService.getContacts()
