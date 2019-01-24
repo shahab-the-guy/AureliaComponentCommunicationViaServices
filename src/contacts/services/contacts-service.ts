@@ -31,6 +31,8 @@ const contacts: IContact[] = [
 @singleton()
 export class ContactsInMemoryService {
 
+  currentContact: IContact| null;
+
   getContacts(): Promise<IContact[]> {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -44,7 +46,8 @@ export class ContactsInMemoryService {
     return new Promise(resolve => {
       setTimeout(() => {
         const found = contacts.find(c => c.id === id);
-        resolve(Object.assign({}, found));
+        this.currentContact = Object.assign({}, found);
+        resolve(this.currentContact);
       }, 500);
     });
   }
@@ -67,6 +70,8 @@ export class ContactsInMemoryService {
         contactToAdd.id = ++id_counter;
         contacts.push(contactToAdd);
 
+        this.currentContact = contactToAdd;
+
         resolve(contactToAdd)
 
       }, 500);
@@ -84,6 +89,7 @@ export class ContactsInMemoryService {
         }
 
         const deleted = contacts.splice(foundIndex, 1);
+        this.currentContact = null;
         resolve(Object.assign({}, deleted[0]));
 
       }, 500);
@@ -103,7 +109,9 @@ export class ContactsInMemoryService {
         contact.id = contacts[foundIndex].id;
         contacts.splice(foundIndex, 1, contact);
 
-        resolve(Object.assign({}, contact));
+        this.currentContact = Object.assign({}, contact);
+
+        resolve(this.currentContact);
 
       }, 500);
     });

@@ -1,14 +1,16 @@
-import { bindable } from "aurelia-framework";
+import { bindable, autoinject } from "aurelia-framework";
 import { IContact } from "contacts/models/contact";
+import { ContactsInMemoryService } from "contacts/services/contacts-service";
 
+@autoinject()
 export class ContactList {
 
   @bindable() contacts: IContact[];
 
+  constructor(private contactService: ContactsInMemoryService) { }
 
   private selectContact(selected: IContact) {
-    console.log(selected);
+    this.contactService.currentContact = selected;
   }
-
 
 }

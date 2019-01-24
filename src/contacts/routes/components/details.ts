@@ -5,14 +5,16 @@ import { autoinject } from "aurelia-framework";
 @autoinject()
 export class ContactDetails {
 
-  contact: IContact;
-
+  // contact: IContact;
+  get contact(){
+    return this.contactService.currentContact;
+  }
   constructor(private contactService: ContactsInMemoryService) { }
 
   async activate(params: any) {
     return this.contactService.getContact(params.id)
       .then(contact => {
-        this.contact = contact;
+        this.contactService.currentContact = contact;
       });
 
   }
