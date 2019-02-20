@@ -1,14 +1,16 @@
 import { IContact } from "../../models/contact";
 import { ContactsInMemoryService } from "../../services/contacts-service";
-import { autoinject } from "aurelia-framework";
+import { autoinject, computedFrom } from "aurelia-framework";
 
 @autoinject()
 export class ContactDetails {
 
   // contact: IContact;
+  @computedFrom('contactService.currentContact')
   get contact(){
     return this.contactService.currentContact;
   }
+
   constructor(private contactService: ContactsInMemoryService) { }
 
   async activate(params: any) {
