@@ -7,10 +7,10 @@ export class ContactList {
 
   @bindable() contacts: IContact[];
 
-  constructor(private contactService: ContactsInMemoryService) { }
+  constructor(private contactService: ContactsInMemoryService,) { }
 
   private selectContact(selected: IContact) {
-    this.contactService.currentContact = selected;
+    this.contactService.selectContact(selected);
   }
 
 }

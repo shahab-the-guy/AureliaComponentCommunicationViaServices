@@ -1,5 +1,6 @@
 import { IContact } from "contacts/models/contact";
 import { singleton } from "aurelia-framework";
+import { EventAggregator } from "aurelia-event-aggregator";
 
 let id_counter = 4;
 const contacts: IContact[] = [
@@ -31,7 +32,13 @@ const contacts: IContact[] = [
 @singleton()
 export class ContactsInMemoryService {
 
-  currentContact: IContact| null;
+  // currentContact: IContact | null;
+
+  constructor(private ea: EventAggregator) { }
+
+  selectContact(selected: IContact) {
+    this.ea.publish('selected-contact-changed', selected);
+  }
 
   getContacts(): Promise<IContact[]> {
     return new Promise(resolve => {
@@ -46,19 +53,15 @@ export class ContactsInMemoryService {
     return new Promise(resolve => {
       setTimeout(() => {
         const found = contacts.find(c => c.id === id);
-        this.currentContact = Object.assign({}, found);
-        resolve(this.currentContact);
+        resolve(Object.assign({}, found));
       }, 500);
     });
   }
 
   saveContact(id: number | null, contact: IContact): Promise<IContact> {
-    if (id === null) {
-      return this.addContact(contact);
-    }
-
-    return this.updateContact(id, contact);
-
+    return (id === null)
+      ? this.addContact(contact)
+      : this.updateContact(id, contact);
   }
 
   private addContact(contact: IContact): Promise<IContact> {
@@ -70,9 +73,9 @@ export class ContactsInMemoryService {
         contactToAdd.id = ++id_counter;
         contacts.push(contactToAdd);
 
-        this.currentContact = contactToAdd;
+        this.selectContact(contactToAdd);
 
-        resolve(contactToAdd)
+        resolve(contactToAdd);
 
       }, 500);
     });
@@ -89,7 +92,7 @@ export class ContactsInMemoryService {
         }
 
         const deleted = contacts.splice(foundIndex, 1);
-        this.currentContact = null;
+        this.selectContact(null);
         resolve(Object.assign({}, deleted[0]));
 
       }, 500);
@@ -109,9 +112,11 @@ export class ContactsInMemoryService {
         contact.id = contacts[foundIndex].id;
         contacts.splice(foundIndex, 1, contact);
 
-        this.currentContact = Object.assign({}, contact);
+        const updatedContact = Object.assign({}, contact);
 
-        resolve(this.currentContact);
+        this.selectContact(updatedContact);
+
+        resolve(updatedContact);
 
       }, 500);
     });
