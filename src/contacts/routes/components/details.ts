@@ -3,23 +3,20 @@ import { ContactsInMemoryService } from "../../services/contacts-service";
 import { autoinject, computedFrom } from "aurelia-framework";
 import { EventAggregator, Subscription } from "aurelia-event-aggregator";
 import { ISubscription } from "aurelia-router";
+import { connectTo } from "aurelia-store";
+import { IState } from "shared/states/state";
 
+@connectTo()
 @autoinject()
 export class ContactDetails {
 
-  contact: IContact;
-  subscription: Subscription;
-  // @computedFrom('contactService.currentContact')
-  // get contact(){
-  //   return this.contactService.currentContact;
-  // }
+  get contact(): IContact {
+    return this.state.contacts.selected;
+  }
 
-  constructor(private contactService: ContactsInMemoryService, ea: EventAggregator) {
+  private state: IState;
 
-    this.subscription = ea.subscribe('selected-contact-changed', (contact: IContact) => {
-      this.contact = contact;
-    });
-
+  constructor(private contactService: ContactsInMemoryService) {
   }
 
   async activate(params: any) {
@@ -27,11 +24,6 @@ export class ContactDetails {
       .then(contact => {
         this.contactService.selectContact(contact);
       });
-
-  }
-
-  deactivate() {
-    this.subscription.dispose();
   }
 
 }

@@ -1,14 +1,12 @@
 <template>
   <abt-card>
-
     <abt-card-header class="bg-primary text-light">
       Contact List
     </abt-card-header>
     <abt-card-body>
-
       <abt-listgroup>
-        <abt-listgroup-item class="${contact.id == contactService.currentContact.id ? 'active' : ''}" repeat.for="contact of contacts" 
-        click.call="selectContact(contact)">
+        <abt-listgroup-item class="${contact.id == state.contacts.selected.id ? 'active' : ''}" repeat.for="contact of contacts"
+          click.call="selectContact(contact)">
           ${contact.name} ${contact.family}
         </abt-listgroup-item>
       </abt-listgroup>

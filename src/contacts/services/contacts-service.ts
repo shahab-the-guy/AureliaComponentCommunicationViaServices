@@ -1,6 +1,9 @@
 import { IContact } from "contacts/models/contact";
 import { singleton } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
+import { Store } from "aurelia-store";
+import { IState } from "shared/states/state";
+import { selectContactAction } from "shared/states/actions";
 
 let id_counter = 4;
 const contacts: IContact[] = [
@@ -34,10 +37,13 @@ export class ContactsInMemoryService {
 
   // currentContact: IContact | null;
 
-  constructor(private ea: EventAggregator) { }
+  constructor(private ea: EventAggregator, private store: Store<IState>) {
+    this.store.registerAction('selectContact', selectContactAction);
+  }
 
   selectContact(selected: IContact) {
-    this.ea.publish('selected-contact-changed', selected);
+    // this.ea.publish('selected-contact-changed', selected);
+    this.store.dispatch(selectContactAction, selected);
   }
 
   getContacts(): Promise<IContact[]> {
