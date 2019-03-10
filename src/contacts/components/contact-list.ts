@@ -11,7 +11,7 @@ export class ContactList {
 
   @bindable() contacts: IContact[];
 
-  constructor(private contactService: ContactsInMemoryService, private store: Store<IState>) { }
+  constructor(private contactService: ContactsInMemoryService) { }
 
   private selectContact(selected: IContact) {
     this.contactService.selectContact(selected);
